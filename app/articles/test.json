@@ -1,0 +1,48 @@
+{
+"type_of": "article",
+"id": 3357241,
+"title": "I Think a Lot of Developers Are Quietly Grieving the Old Internet",
+"description": "I think a lot of developers are carrying a kind of grief right now, but rarely naming it.  Not...",
+"readable_publish_date": "Mar 16",
+"slug": "i-think-a-lot-of-developers-are-quietly-grieving-the-old-internet-3d8",
+"path": "/the_nortern_dev/i-think-a-lot-of-developers-are-quietly-grieving-the-old-internet-3d8",
+"url": "https://dev.to/the_nortern_dev/i-think-a-lot-of-developers-are-quietly-grieving-the-old-internet-3d8",
+"comments_count": 65,
+"public_reactions_count": 73,
+"collection_id": null,
+"published_timestamp": "2026-03-16T06:35:16Z",
+"language": "en",
+"subforem_id": 1,
+"positive_reactions_count": 73,
+"cover_image": "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Frongxsj38fdfu0868zbh.png",
+"social_image": "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Frongxsj38fdfu0868zbh.png",
+"canonical_url": "https://dev.to/the_nortern_dev/i-think-a-lot-of-developers-are-quietly-grieving-the-old-internet-3d8",
+"created_at": "2026-03-16T06:23:47Z",
+"edited_at": null,
+"crossposted_at": null,
+"published_at": "2026-03-16T06:35:16Z",
+"last_comment_at": "2026-03-17T06:01:27Z",
+"reading_time_minutes": 2,
+"tag_list": [
+"discuss",
+"webdev",
+"programming",
+"culture"
+],
+"tags": "discuss, webdev, programming, culture",
+"user": {
+    "name": "NorthernDev",
+    "username": "the_nortern_dev",
+    "twitter_username": null,
+    "github_username": "jakops88-hub",
+    "user_id": 3630167,
+    "website_url": "https://www.sigilla.net",
+    "profile_image": "https://media2.dev.to/dynamic/image/width=640,height=640,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F3630167%2F2e206d7e-04d3-484b-8a73-1f98d17a0e1a.png",
+    "profile_image_90": "https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F3630167%2F2e206d7e-04d3-484b-8a73-1f98d17a0e1a.png"
+},
+"flare_tag": {
+"name": "discuss",
+"bg_color_hex": "#71EA8B",
+"text_color_hex": "#FFFFFF"
+}
+}
