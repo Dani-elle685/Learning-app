@@ -9,6 +9,10 @@ export default function IndividualForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  console.log("Name:", name);
+  console.log("Email:", email);
+  console.log("Password:", password);
+
   // Errors for each field
   const [nameError, setNameError] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -33,7 +37,7 @@ export default function IndividualForm() {
       setEmailError("");
     }
 
-    if (password.length < 6) {
+    if (!password || password.length < 6) {
       setPasswordError("Password must be at least 6 characters");
       valid = false;
     } else {
@@ -45,16 +49,22 @@ export default function IndividualForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+   
     if (!validate()) return;
 
     setLoading(true);
 
     try {
+
       const res = await fetch("http://localhost:8080/api/users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, password }),
+        body: JSON.stringify(
+          { name,
+            email, 
+            password 
+          }
+        ),
       });
 
       if (!res.ok) throw new Error("Failed to submit");
@@ -64,7 +74,6 @@ export default function IndividualForm() {
       setEmail("");
       setPassword("");
     } catch (err) {
-      console.error(err);
       alert("Error submitting form");
     } finally {
       setLoading(false);
@@ -82,6 +91,7 @@ export default function IndividualForm() {
             placeholder="Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            className="border"
           />
           {nameError && <p className="text-red-500 text-sm">{nameError}</p>}
         </div>
@@ -89,9 +99,11 @@ export default function IndividualForm() {
         {/* Email */}
         <div>
           <input
+            type="email"
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            className="border"
           />
           {emailError && <p className="text-red-500 text-sm">{emailError}</p>}
         </div>
@@ -103,15 +115,18 @@ export default function IndividualForm() {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+                        className="border"
+
           />
           {passwordError && (
             <p className="text-red-500 text-sm">{passwordError}</p>
           )}
         </div>
 
-        <button type="submit" disabled={loading}>
+        <button type="submit" disabled={loading} className="border">
           {loading ? "Submitting..." : "Submit"}
         </button>
+
       </form>
     </div>
   );
