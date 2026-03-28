@@ -1,4 +1,5 @@
-import AddForm from "./form";
+import { Suspense } from "react";
+import fetchUsers from "../serverActions/fetchUsers";
 import UsersCard from "./UsersCard";
 
 export interface User {
@@ -8,19 +9,14 @@ export interface User {
   createdAt: string;
 }
 const page = async () => {
-
-  const allUsers = await fetch("http://localhost:3000/api/users", {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
-  });
-
-  const users: User[] = await allUsers.json();
+  const users = await fetchUsers();
 
   console.log("users", users);
   return (
     <div className="container mx-auto p-4">
-      <AddForm />
-      <UsersCard users={users ?? []} />
+      <Suspense fallback={<div>Loading Data...</div>}>
+        <UsersCard />
+      </Suspense>
     </div>
   );
 };

@@ -1,17 +1,30 @@
 "use client";
+
 import Link from "next/link";
-import Buttons from "./Buttons";
 import { User } from "./page";
-import { use, useState } from "react";
+import { useEffect, useState } from "react";
 import AddForm from "./form";
+import { deleteUsers } from "../serverActions/deleteUsers";
+import fetchUsers from "../serverActions/fetchUsers";
 
-interface Users {
-  users: User[];
-}
+// interface Users {
+//   users: User[];
+// }
 
-const UsersCard = ({ users }: Users) => {
+const UsersCard = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [user, setUser] = useState<User>();
+
+  const [users, setUsers] = useState<User[]>([]);
+
+   const getUsers = async () => {
+       const users = await fetchUsers();
+      setUsers(users);
+    };
+
+  useEffect( ()=>{
+    getUsers();
+  }, []);
 
   const handleEdit = (id:string) => {
     setUser(users.find((user) => user._id === id));
@@ -20,19 +33,20 @@ const UsersCard = ({ users }: Users) => {
 
 
   const handleDelete = async (id: string) => {
-
-    const response = await fetch(`http://localhost:3000/api/users/${id}`, {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-    });
-    if (!response.ok) {
-      throw new Error("Failed to delete user");
-    }
+    await deleteUsers(id);
     alert("User deleted");
   };
 
   return (
     <div className=" mt-8">
+      {isEditing ? (
+        <div className="mt-4">
+          <AddForm user={user}/>
+        </div>
+      ):(
+       <AddForm />
+       )}
+
       <h1>list of users</h1>
       <div className="grid grid-cols-3 gap-4">
         {users.map((user) => (
@@ -60,11 +74,7 @@ const UsersCard = ({ users }: Users) => {
         ))}
       </div>
 
-      {isEditing && (
-        <div className="mt-4">
-          <AddForm user={user}/>
-        </div>
-      )}
+      
     </div>
   );
 };

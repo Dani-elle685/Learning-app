@@ -1,10 +1,16 @@
-"use client"
-import React from 'react'
+"use client";
 
-const Error = () => {
+const Error = ({ error, reset }: { error: Error; reset: () => void }) => {
   return (
-    <div>Error page</div>
-  )
-}
+    <div className="text-center py-16">
+      <h2>Something went wrong</h2>
+      <p>{error.message}</p>
 
-export default Error
+      <button onClick={reset} className="btn btn-primary">
+        Try again
+      </button>
+    </div>
+  );
+};
+
+export default Error;
